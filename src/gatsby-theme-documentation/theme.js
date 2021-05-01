@@ -1,3 +1,5 @@
+import { roboto } from '@theme-ui/presets'
+
 const heading = {
   fontFamily: 'heading',
   fontWeight: 'heading',
@@ -9,53 +11,8 @@ const heading = {
 }
 
 export default {
-  initialColorMode: 'light',
-  colors: {
-    text: '#000',
-    background: '#fff',
-    primary: '#33e',
-    secondary: '#119',
-    muted: '#f6f6f6',
-    highlight: '#ffffcc',
-    gray: '#777',
-    purple: '#609',
-    modes: {
-      dark: {
-        text: '#fff',
-        background: '#060606',
-        primary: '#3cf',
-        secondary: '#e0f',
-        muted: '#191919',
-        highlight: '#ffffcc',
-        gray: '#999',
-        purple: '#c0f',
-      },
-      deep: {
-        text: 'hsl(210, 50%, 96%)',
-        background: 'hsl(230, 25%, 18%)',
-        primary: 'hsl(260, 100%, 80%)',
-        secondary: 'hsl(290, 100%, 80%)',
-        purple: 'hsl(290, 100%, 80%)',
-        muted: 'hsla(230, 20%, 0%, 20%)',
-        gray: 'hsl(210, 50%, 60%)',
-      },
-      swiss: {
-        text: 'hsl(10, 20%, 20%)',
-        background: 'hsl(10, 10%, 98%)',
-        primary: 'hsl(10, 80%, 50%)',
-        secondary: 'hsl(10, 60%, 50%)',
-        purple: 'hsl(250, 60%, 30%)',
-        muted: 'hsl(10, 20%, 94%)',
-        gray: 'hsl(10, 20%, 50%)',
-      },
-    },
-  },
-  fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'inherit',
-    monospace: 'Menlo, monospace',
-  },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  ...roboto,
+  fontSizes: [12, 14, 16, 18, 20, 24, 32, 48, 64, 72],
   fontWeights: {
     body: '400',
     heading: '700',
@@ -68,10 +25,17 @@ export default {
     heading,
     display: {
       variant: 'textStyles.heading',
-      fontSize: [5, 6, 7],
+      fontSize: 6,
       mt: 3,
     },
   },
+  layout: {
+    maxWidth: 1024,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: 16
+  },
+  breakpoints: ['65em'],
   styles: {
     Container: {
       p: 3,
@@ -163,51 +127,5 @@ export default {
     img: {
       maxWidth: '100%'
     }
-  },
-  prism: {
-    [[
-      '.comment',
-      '.prolog',
-      '.doctype',
-      '.cdata',
-      '.punctuation',
-      '.operator',
-      '.entity',
-      '.url',
-    ]]: {
-      color: 'gray',
-    },
-    '.comment': {
-      fontStyle: 'italic',
-    },
-    [[
-      '.property',
-      '.tag',
-      '.boolean',
-      '.number',
-      '.constant',
-      '.symbol',
-      '.deleted',
-      '.function',
-      '.class-name',
-      '.regex',
-      '.important',
-      '.variable',
-    ]]: {
-      color: 'purple',
-    },
-    [['.atrule', '.attr-value', '.keyword']]: {
-      color: 'primary',
-    },
-    [[
-      '.selector',
-      '.attr-name',
-      '.string',
-      '.char',
-      '.builtin',
-      '.inserted',
-    ]]: {
-      color: 'secondary',
-    },
   },
 }
