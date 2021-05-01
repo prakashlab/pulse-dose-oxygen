@@ -34,12 +34,12 @@ export default {
     },
   },
   layout: {
-    maxWidth: 1024,
+    maxWidth: '100em',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: [16, 32],
   },
-  breakpoints: ['65em'],
+  breakpoints: ['80em'],
   styles: {
     Container: {
       p: 3,

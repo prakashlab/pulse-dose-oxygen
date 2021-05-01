@@ -20,10 +20,12 @@ export default ({ children }) => {
     }
   }
 
-  const location = useLocation();
+  const location = useLocation()
+
+  const ThemedRoot = Themed.root
 
   return (
-    <Themed.root>
+    <ThemedRoot>
       <Global styles={bodyStyles} />
       <Box variant="layout">
         <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -55,6 +57,6 @@ export default ({ children }) => {
           </div>
         </Container>
       </Box>
-    </Themed.root>
+    </ThemedRoot>
   )
 }

@@ -15,21 +15,28 @@
     "forestry:preview": "gatsby develop -p 8080 -H 0.0.0.0"
   },
   "dependencies": {
-    "gatsby": "^2.29.0",
-    "gatsby-plugin-catch-links": "^2.10.0",
-    "gatsby-plugin-webfonts": "^1.1.4",
-    "gatsby-theme-documentation": "^0.0.27",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  },
-  "resolutions": {
+    "@emotion/core": "^10.1.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@theme-ui/presets": "^0.7.5",
     "@theme-ui/prism": "^0.7.5",
     "@theme-ui/sidenav": "^0.7.5",
+    "gatsby": "^2.29.0",
+    "gatsby-plugin-catch-links": "^2.10.0",
     "gatsby-plugin-mdx": "^2.4.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-redirects": "^1.0.0",
     "gatsby-plugin-theme-ui": "^0.7.5",
+    "gatsby-plugin-webfonts": "^1.1.4",
+    "gatsby-remark-responsive-iframe": "^2.11.0",
+    "gatsby-source-filesystem": "^2.11.1",
+    "is-absolute-url": "^3.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "remark-emoji": "^2.2.0",
+    "remark-slug": "^6.0.0",
     "theme-ui": "0.7.5"
   }
 }

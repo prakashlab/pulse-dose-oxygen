@@ -13,6 +13,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `docs`,
+        path: `${__dirname}/docs`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-webfonts',
       options: {
         google: [
@@ -23,7 +30,23 @@ module.exports = {
         ],
       },
     },
-    'gatsby-theme-documentation',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-responsive-iframe',
+        ],
+        remarkPlugins: [
+          require('remark-slug'),
+          require('remark-emoji'),
+        ],
+      },
+    },
+    'gatsby-plugin-meta-redirect',
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-redirects',
     'gatsby-plugin-catch-links',
   ]
 }
