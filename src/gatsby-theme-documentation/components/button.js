@@ -10,7 +10,7 @@ export default props => (
       fontSize: 1,
       fontWeight: 'bold',
       m: 0,
-      px: 2,
+      px: 3,
       py: 2,
       color: 'text',
       bg: 'muted',

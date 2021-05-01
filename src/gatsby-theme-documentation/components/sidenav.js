@@ -14,13 +14,12 @@ export default props => (
     {...props}
     components={components}
     sx={{
-      width: ['100%', '16em'],
+      width: '20em',
       flex: 'none',
       pl: [20, 0],
       pr: 3,
-      pt: [4, 3],
+      pt: [5, 3],
       pb: 4,
-      mt: [80, 0],
     }}
   />
 )

@@ -16,7 +16,7 @@ export default {
     body: 'Inter, Roboto, "Helvetica Neue", sans-serif',
     heading: 'Inter, Roboto, "Helvetica Neue", sans-serif'
   },
-  fontSizes: [14, 16, 18, 20, 24, 28, 36, 40, 48, 64, 72],
+  fontSizes: [18, 20, 24, 28, 36, 40, 48, 64, 72],
   fontWeights: {
     body: '500',
     heading: '700',
