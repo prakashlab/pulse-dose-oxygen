@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Documentation Starter',
-    description: 'This is a starter for gatsby-theme-documentation'
+    title: 'Pulse-Dose Oxygen Conservation',
+    description: 'Documentation site for a pulse-dose oxygen conservation system'
   },
+  pathPrefix: '/pulse-dose-oxygen',
   plugins: [
     'gatsby-theme-documentation'
   ]
