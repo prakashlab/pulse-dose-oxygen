@@ -29,13 +29,17 @@ export default props => (
       width: 32,
       height: 32,
       p: 1,
-      m: 0,
+      ml: 2,
       border: 0,
       appearance: 'none',
       ':focus': {
         outline: '2px solid',
       },
+      ':hover': {
+        color: 'primary',
+      },
       display: ['block', 'none'],
+      cursor: 'pointer',
     }}
   >
     <Burger />

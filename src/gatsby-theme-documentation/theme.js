@@ -1,4 +1,4 @@
-import { roboto } from '@theme-ui/presets'
+import { bootstrap } from '@theme-ui/presets'
 
 const heading = {
   fontFamily: 'heading',
@@ -11,10 +11,14 @@ const heading = {
 }
 
 export default {
-  ...roboto,
+  ...bootstrap,
+  fonts: {
+    body: 'Inter, Roboto, "Helvetica Neue", sans-serif',
+    heading: 'Inter, Roboto, "Helvetica Neue", sans-serif'
+  },
   fontSizes: [14, 16, 18, 20, 24, 28, 36, 40, 48, 64, 72],
   fontWeights: {
-    body: '400',
+    body: '500',
     heading: '700',
   },
   lineHeights: {
@@ -33,7 +37,7 @@ export default {
     maxWidth: 1024,
     marginLeft: 'auto',
     marginRight: 'auto',
-    padding: 16
+    padding: [16, 32],
   },
   breakpoints: ['65em'],
   styles: {
@@ -129,6 +133,9 @@ export default {
     },
     p: {
       fontSize: 1,
-    }
+    },
+    ol: {
+      fontSize: 1,
+    },
   },
 }

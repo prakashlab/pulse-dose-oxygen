@@ -19,6 +19,10 @@ export default props => (
       ':focus': {
         outline: '2px solid',
       },
+      ':hover': {
+        color: 'primary',
+      },
+      cursor: 'pointer',
     }}
   />
 )

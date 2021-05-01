@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useState, useRef } from 'react'
 import { Global } from '@emotion/core'
-import { Styled, Box, Container, jsx, useThemeUI } from 'theme-ui'
+import { Themed, Box, Container, jsx, useThemeUI } from 'theme-ui'
 import { useLocation } from '@reach/router'
 
 import Header from './header'
@@ -23,11 +23,11 @@ export default ({ children }) => {
   const location = useLocation();
 
   return (
-    <Styled.root>
+    <Themed.root>
       <Global styles={bodyStyles} />
       <Box variant="layout">
         <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Container py={0}>
+        <Container>
           <div
             ref={nav}
             sx={{
@@ -47,6 +47,7 @@ export default ({ children }) => {
               sx={{
                 overflow: 'hidden',
                 px: 3,
+                pb: 16,
               }}
             >
               {children}
@@ -54,6 +55,6 @@ export default ({ children }) => {
           </div>
         </Container>
       </Box>
-    </Styled.root>
+    </Themed.root>
   )
 }
