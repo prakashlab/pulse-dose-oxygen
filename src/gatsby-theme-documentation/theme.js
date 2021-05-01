@@ -12,7 +12,7 @@ const heading = {
 
 export default {
   ...roboto,
-  fontSizes: [12, 14, 16, 18, 20, 24, 32, 48, 64, 72],
+  fontSizes: [14, 16, 18, 20, 24, 28, 36, 40, 48, 64, 72],
   fontWeights: {
     body: '400',
     heading: '700',
