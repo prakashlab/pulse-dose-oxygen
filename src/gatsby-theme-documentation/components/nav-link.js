@@ -28,7 +28,7 @@ export default ({ href, children, ...props }) => {
   return (
     <Link
       {...props}
-      to={to}
+      to={to.replace('/pulse-dose-oxygen', '')}
       sx={styles}
       activeClassName="active"
     >
