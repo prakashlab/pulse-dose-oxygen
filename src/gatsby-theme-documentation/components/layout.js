@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react'
 import { Global } from '@emotion/core'
 import { Styled, Box, Container, jsx, useThemeUI } from 'theme-ui'
+import { useLocation } from '@reach/router'
 
 import Header from './header'
 import Sidenav from './sidenav'
@@ -19,6 +20,8 @@ export default ({ children }) => {
     }
   }
 
+  const location = useLocation();
+
   return (
     <Styled.root>
       <Global styles={bodyStyles} />
@@ -32,11 +35,13 @@ export default ({ children }) => {
             }}
           >
             <Sidenav
+              role="navigation"
               open={menuOpen}
               sx={{ display: [null, 'block'] }}
               onFocus={() => setMenuOpen(true)}
               onBlur={() => setMenuOpen(false)}
               onClick={() => setMenuOpen(false)}
+              pathname={location.pathname}
             />
             <div
               sx={{

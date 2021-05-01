@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box, Container, Flex } from 'theme-ui'
+import { jsx, Container, Flex } from 'theme-ui'
 import { MDXProvider } from '@mdx-js/react'
 
 import MenuButton from './menu-button'
