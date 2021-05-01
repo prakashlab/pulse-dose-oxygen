@@ -24,12 +24,11 @@ export default ({ children }) => {
       <Global styles={bodyStyles} />
       <Box variant="layout">
         <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Container py={0} px={3}>
+        <Container py={0}>
           <div
             ref={nav}
             sx={{
               display: ['block', 'flex'],
-              mx: -3,
             }}
           >
             <Sidenav
