@@ -14,6 +14,9 @@ const styles = {
   '&.active': {
     color: 'primary',
   },
+  '&:hover': {
+    color: 'primary',
+  },
 }
 
 export default ({ href, children, ...props }) => {

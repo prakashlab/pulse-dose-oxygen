@@ -6,7 +6,10 @@ const heading = {
   lineHeight: 'heading',
   a: {
     color: 'inherit',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    '&:hover': {
+      color: 'primary',
+    },
   }
 }
 
