@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Pulse-Dose Oxygen Conservation',
-    description: 'Documentation site for a pulse-dose oxygen conservation system'
+    description: 'Documentation site for a pulse-dose oxygen conservation system',
+    siteUrl: 'https://prakashlab.github.io/pulse-dose-oxygen/',
   },
   pathPrefix: '/pulse-dose-oxygen',
   plugins: [
@@ -9,8 +10,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
+        name: `uploads`,
+        path: `${__dirname}/uploads`,
       },
     },
     {
@@ -23,8 +24,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `uploads`,
-        path: `${__dirname}/uploads`,
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     {
@@ -57,7 +58,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-relative-images`,
             options: {
-              staticFolderName: ``,
+              staticFolderName: '',
               include: ['coverImage'],
             },
           },
