@@ -16,8 +16,8 @@ const heading = {
 export default {
   ...bootstrap,
   fonts: {
-    body: 'Inter, Roboto, "Helvetica Neue", sans-serif',
-    heading: 'Inter, Roboto, "Helvetica Neue", sans-serif'
+    body: 'Inter, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif',
+    heading: 'Inter, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif',
   },
   fontSizes: [12, 16, 20, 24, 28, 36, 40, 48, 64, 72],
   fontWeights: {
@@ -54,6 +54,9 @@ export default {
       lineHeight: 'body',
       fontWeight: 'body',
       textRendering: 'optimizeLegibility',
+      fontFeatureSettings: ['case', 'calt', 'ss03', 'cv10', 'locl', 'cpsp', 'ordn'],
+      WebkitFontSmoothing: 'antialiased',
+      textSizeAdjust: '100%',
     },
     h1: {
       variant: 'textStyles.display',
