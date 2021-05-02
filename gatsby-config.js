@@ -29,14 +29,12 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-webfonts',
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        google: [
-          {
-            family: 'Inter',
-            variants: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-          }
-        ],
+        custom: {
+            families: ['Inter'],
+            urls: ['fonts.css'],
+        },
       },
     },
     'gatsby-plugin-sharp',
