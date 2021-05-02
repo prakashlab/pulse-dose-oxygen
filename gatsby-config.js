@@ -67,7 +67,6 @@ module.exports = {
               quality: 100,
               showCaptions: ['title'],
               markdownCaptions: false,
-              disableBgImage: true,
             },
           },
           'gatsby-remark-figure',
