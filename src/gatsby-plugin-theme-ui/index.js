@@ -25,8 +25,8 @@ export default {
     heading: '700',
   },
   lineHeights: {
-    body: 1.5,
-    heading: 1.25,
+    body: 1.54,
+    heading: 1.3,
   },
   textStyles: {
     heading,
@@ -54,7 +54,7 @@ export default {
       lineHeight: 'body',
       fontWeight: 'body',
       textRendering: 'optimizeLegibility',
-      fontFeatureSettings: ['case', 'calt', 'ss03', 'cv10', 'locl', 'cpsp', 'ordn'],
+      fontFeatureSettings: '"case", "calt", "ss03", "cv10", "locl", "cpsp", "ordn"',
       WebkitFontSmoothing: 'antialiased',
       textSizeAdjust: '100%',
     },
