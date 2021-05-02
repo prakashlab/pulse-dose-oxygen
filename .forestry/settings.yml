@@ -11,13 +11,11 @@ sections:
   match: "**/*.mdx"
   new_doc_ext: mdx
 - type: document
-  path: src/gatsby-theme-documentation/sidebar.mdx
+  path: src/sidebar.mdx
   label: Sidebar
-  match: "**/*"
 - type: document
-  path: src/gatsby-theme-documentation/header.mdx
+  path: src/header.mdx
   label: Header
-  match: "**/*"
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
