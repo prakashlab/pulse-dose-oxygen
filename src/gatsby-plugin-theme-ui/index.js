@@ -151,5 +151,10 @@ export default {
         fontWeight: '400',
       }
     },
+    sup: {
+      a: {
+        textDecoration: 'none',
+      }
+    }
   },
 }

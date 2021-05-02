@@ -11,10 +11,10 @@ const heading = (Tag) => (props) => {
   )
 }
 
-const figure = (props) => (
-  <figure {...props}>
+const tag = (Tag) => (props) => (
+  <Tag {...props}>
     {props.children}
-  </figure>
+  </Tag>
 )
 
 const components = {
@@ -23,7 +23,8 @@ const components = {
   h4: heading('h4'),
   h5: heading('h5'),
   h6: heading('h6'),
-  figure: figure,
+  figure: tag('figure'),
+  sup: tag('sup'),
 }
 
 export default components
