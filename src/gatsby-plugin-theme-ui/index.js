@@ -19,7 +19,7 @@ export default {
     body: 'Inter, Roboto, "Helvetica Neue", sans-serif',
     heading: 'Inter, Roboto, "Helvetica Neue", sans-serif'
   },
-  fontSizes: [16, 20, 24, 28, 36, 40, 48, 64, 72],
+  fontSizes: [12, 16, 20, 24, 28, 36, 40, 48, 64, 72],
   fontWeights: {
     body: '500',
     heading: '700',
@@ -37,7 +37,7 @@ export default {
     },
   },
   layout: {
-    maxWidth: '100em',
+    maxWidth: '80em',
     marginLeft: 'auto',
     marginRight: 'auto',
     py: 32,
@@ -147,6 +147,9 @@ export default {
       width: '100%',
       mx: 0,
       my: 32,
+      figcaption: {
+        fontWeight: '400',
+      }
     },
   },
 }
