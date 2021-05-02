@@ -53,6 +53,7 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
+      textRendering: 'optimizeLegibility',
     },
     h1: {
       variant: 'textStyles.display',
