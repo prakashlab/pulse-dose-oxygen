@@ -37,13 +37,13 @@ export default {
     },
   },
   layout: {
-    maxWidth: '80rem',
+    maxWidth: '900px',
     marginLeft: 'auto',
     marginRight: 'auto',
     py: 32,
     px: [16, 32],
   },
-  breakpoints: ['80rem'],
+  breakpoints: ['800px'],
   styles: {
     Container: {
       p: 3,

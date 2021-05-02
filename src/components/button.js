@@ -9,6 +9,7 @@ export default props => (
       fontFamily: 'inherit',
       fontSize: 1,
       fontWeight: 'bold',
+      whiteSpace: 'nowrap',
       m: 0,
       px: 3,
       py: 2,
