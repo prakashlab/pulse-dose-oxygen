@@ -8,12 +8,40 @@ import Button from '../src/components/button'
 
 Here we present a simple, rapidly manufacturable pulse-dose oxygen delivery system which conserves oxygen by delivering it on patient demand. A schematic of the device is shown in Figure 1. The device mainly consists of a flow-control valve and pressure sensor in line with the standard pressure/flow regulator on an oxygen cylinder. The pressure sensor detects the start of  patient inhalation and opens the valve to allow oxygen flow to the patient. Similarly the end of the inhalation cycle is detected and the flow of oxygen reduced or stopped. An alarm must be installed to indicate a missed signal, either due to device malfunction or improper cannula connection.
 
-Figure 1
+<figure>
+
+![Schematic of proposed device.](/uploads/design-schematic.png)
+
+<figcaption>
+
+**Fig. 1**: Schematic of proposed device.
+
+</figcaption>
+</figure>
+
+<figure>
+
+![Design of proposed pinch shoe valve.](/uploads/pinch-shoe-valve-design.png)
+![Left, plot of flow rate and upstream pressure over time as valve is cycled. Right, plot of flow and upstream pressure versus linear actuator position, aggregated over many cycles.](/uploads/pinch-shoe-valve-characterization.png)
+
+<figcaption>
+
+**Fig. 2**: Pinch shoe valve design and testing - in collaboration with Bharat Forge who will be the large scale manufacturer for this design.
+
+</figcaption>
+</figure>
 
 A key aspect of our work last year was local development and manufacturing of valves for this purpose. With a shortage of supply chains - we built a new valve design in collaboration with Dan Harris lab (Brown) and Kai Kuck (U. Utah). We are now scaling production of these indiginous pinch-shoe valves since they alleviate many issues with lack of medical grade valve availability or use of grease and other volatiles used in traditional valves. Most importantly, we tested these valves for millions of cycles to characterize wear and tear.
 
+<figure>
+
 `youtube: https://www.youtube.com/embed/Te2L3a4rRs8`
 
-Figure 2
+<figcaption>
+
+**Fig. 3**: Implementation of first prototype.
+
+</figcaption>
+</figure>
 
 [<Button>&laquo; Requirements</Button>](requirements) [<Button>Contributing &raquo;</Button>](contributing)

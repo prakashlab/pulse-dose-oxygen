@@ -141,5 +141,12 @@ export default {
     ol: {
       fontSize: 1,
     },
+    figure: {
+      display: 'table',
+      maxWidth: '100%',
+      width: '100%',
+      mx: 0,
+      my: 32,
+    },
   },
 }
