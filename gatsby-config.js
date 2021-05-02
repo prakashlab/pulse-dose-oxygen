@@ -5,6 +5,7 @@ module.exports = {
   },
   pathPrefix: '/pulse-dose-oxygen',
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,6 +21,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `uploads`,
+        path: `${__dirname}/uploads`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-webfonts',
       options: {
         google: [
@@ -30,12 +38,41 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-remark-images',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              related: false,
+              noIframeBorder: true,
+            },
+          },
           'gatsby-remark-responsive-iframe',
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              staticFolderName: ``,
+              include: ['coverImage'],
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              quality: 100,
+              showCaptions: ['title'],
+              markdownCaptions: false,
+              disableBgImage: true,
+            },
+          },
+          'gatsby-remark-figure',
+          'gatsby-remark-numbered-footnotes',
         ],
         remarkPlugins: [
           require('remark-slug'),
@@ -45,8 +82,9 @@ module.exports = {
     },
     'gatsby-plugin-meta-redirect',
     'gatsby-plugin-theme-ui',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-redirects',
+    'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-sitemap',
   ]
 }

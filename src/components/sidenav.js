@@ -20,6 +20,7 @@ export default props => (
       pr: 3,
       pt: [5, 3],
       pb: 4,
+      transition: 'none',
     }}
   />
 )
