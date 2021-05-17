@@ -19,7 +19,7 @@ export default {
     body: 'Inter, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif',
     heading: 'Inter, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif',
   },
-  fontSizes: [12, 16, 20, 24, 28, 32, 40, 48, 64, 72],
+  fontSizes: [14, 16, 18, 20, 24, 32, 40, 48, 64, 72],
   fontWeights: {
     body: '500',
     heading: '700',
@@ -143,6 +143,9 @@ export default {
       fontSize: 1,
     },
     ol: {
+      fontSize: 1,
+    },
+    ul: {
       fontSize: 1,
     },
     figure: {

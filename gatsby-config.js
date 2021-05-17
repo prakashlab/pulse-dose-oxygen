@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Pulse-Dose Oxygen Conservation',
+    title: 'AnmO2l',
     description: 'Documentation site for a pulse-dose oxygen conservation system',
     siteUrl: 'https://prakashlab.github.io/pulse-dose-oxygen/',
   },
