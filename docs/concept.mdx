@@ -4,9 +4,11 @@ import Button from '../src/components/button'
 
 ## Rationale & Need
 
-The Indian subcontinent and parts of Southeast Asia are currently facing a devastating second wave of the COVID-19 pandemic. Oxygen shortage is an urgent issue in many major cities and towns where infections have spiked. There is currently an urgent need for solutions to help conserve the already limited oxygen supply. This becomes even more important since, due to lack of hospital beds, a lot of care needs to be administered in a home or field hospital setting. Despite a capacity to produce at least 7,100 tonnes of oxygen every day, India is struggling to provide it where it is needed the most due to a supply chain and distribution issue.[^ghoshal] In many settings oxygen cylinders are the main mode of oxygen delivery.
+The Indian subcontinent and parts of Southeast Asia are currently facing a devastating second wave of the COVID-19 pandemic. Oxygen shortage is currently an acute issue in many major cities and towns where infections have spiked. At the time of writing (May 17, 2021), estimates based on WHO data put the current oxygen demand in India at 15.8 million cubic meters or 2.2 million oxygen cylinders per day.[^path] These numbers, which are based on testing data, are also likely underestimates. Challenges in both production and supply chain management and distribution mean that India is struggling to distribute these life-saving supplies where they are needed the most.[^ghoshal] The problem is only more severe as the disease further spreads in the rural areas, which have two third of India's population but have less infrastructure and are associated with more transportation delays. Worryingly, other countries in the Indian subcontinent, such as Nepal, have also started facing acute oxygen shortages mirroring the situation in India.[^bhandari]
 
-**A device which conserves oxygen will extend the life of cylinders and will help in this climate of extreme shortages.** In addition to minimizing the oxygen consumption, oxygen conservation devices have made it possible for oxygen cylinders to be easily portable by decreasing its size by 4-5 times.[^tiep]
+Among symptomatic COVID-19 patients, while most only develop mild (40%) and moderate (40%) disease, around 15% develop severe disease requiring oxygen support, whereas 5\% have critical disease with complications requiring intensive care.[^who-clinman] For those patients who require supplemental oxygen, in the course of their clinical management, delivery of oxygen usually starts and stops with nasal cannula at flow rates less than 6 L/min. Oxygen delivered during patient exhalation is mostly vented to the air and wasted, providing an opportunity for oxygen conservation by shutting the flow when the patient is exhaling. Towards this, some completely passive solutions have been developed, such as the Oxymizer device.[^tiep-phillips]<sup>,</sup>[^abel] However, due to the limited reservoir size and fluid dynamic parameters which these devices are designed for, the effect of oxygen saving decreases significantly as the flow rate is increased (3:1 at 0.5 L/min, 1.7:1 at 2 L/min, 1.4:1 at 4 L/min and 1.3:1 at 5 L/min)[^dumont], making these devices useful only in oxygen therapy for COPD. Other more effective oxygen conservation devices have been developed in the 1990's and early 2000's but now have very limited or no availability.
+
+**A device which conserves oxygen for oxygen therapy in COVID-19 patients will extend the life of cylinders and will help in this climate of extreme shortages.**
 
 ## Concept
 
@@ -61,7 +63,17 @@ Additional requirements for usability are as follows:
 
 [<Button>&laquo; Introduction</Button>](/) [<Button>Design &raquo;</Button>](design)
 
+[^path]: Market Dynamics. [COVID-19 Oxygen Needs Tracker](https://www.path.org/programs/market-dynamics/covid-19-oxygen-needs-tracker/). _PATH_, 17 May, 2021.
+
 [^ghoshal]: D Ghoshal. [Why India is facing an oxygen crisis as COVID cases mount](https://www.reuters.com/world/india/why-india-is-facing-an-oxygen-crisis-covid-cases-mount-2021-04-23/). _Reuters_, 23 April, 2021.
+
+[^bhandari] R Bhandari, H Ellis-Petersen. ['A hopeless situation': oxygen shortage fuels Nepal's Covid crisis](https://www.theguardian.com/world/2021/may/10/hopeless-situation-oxygen-shortage-fuels-nepal-covid-crisis). _The Guardian_, 10 May, 2021.
+
+[^who-clinman] World Health Organization. [COVID-19 Clinical management: living guidance](https://www.who.int/publications/i/item/WHO-2019-nCoV-clinical-2021-1). _WHO_, 25 January, 2021.
+
+[^tiep-phillips]: BL Tiep, RE Phillips, BA Otsap. [Oxygen delivery apparatus](https://patents.google.com/patent/US4535767A/en). _USPTO_ US4535767A, 1982.
+
+[^abel]: E Abel. [Oxygen delivery and conserving device](https://patents.google.com/patent/US5280780A). _USPTO_ US5280780A, 1992.
 
 [^tiep]: B Tiep, R Carter. [Oxygen conserving devices and methodologies](https://journals.sagepub.com/doi/abs/10.1177/1479972308090691). _Chronic Respiratory Disease_ 5, no. 2 (2008): 109-114.
 

@@ -2,9 +2,16 @@ import Button from '../src/components/button'
 
 # Design
 
-**Disclaimer**: This is an open-source design we are sharing in the context of the pandemic. This is not an approved medical device and we do not advise any individual implementation. We are working with industrial partners to scale up this implementation - but sharing in open domain for other industry partners to engage as well. Please reach out to us and join the effort if you are interested in developing and validating the system for clinical evaluation.
+**Disclaimer**: This is an open-source design we are sharing in the context of the pandemic. This is not an approved medical device and we do not advise any individual implementation. We are working with industrial partners to scale up this implementation, and in parallel we are pursuing larger scale clinical validation. We are sharing the basic design and initial testing of the device, seeking feedback, and seeking to connect with clinicians as well as interested design and manufacturing partners to be able to bring this solution to patients and support oxygen delivery and conservation efforts in South Asia.
 
-Here we present a simple, rapidly manufacturable pulse-dose oxygen delivery system which conserves oxygen by delivering it on patient demand. A schematic of the device is shown in Figure 1. The device mainly consists of a flow-control valve and pressure sensor in line with the standard pressure/flow regulator on an oxygen cylinder.  The device senses patient inhalation through the pressure port and pressure sensor as a pressure drop below a threshold, and triggers the valve to allow flow. This allows a pulse of oxygen to reach the patient at the start of inhalation. Similarly, when the patient finishes inhalation, the device detects this as the rise of pressure above a threshold and turns off the flow of oxygen to save oxygen during the expiratory phase.
+Here we present a design for a simple yet effective oxygen conservation device which makes use of readily available parts and can be rapidly manufactured in centralized or distributed approaches by reputed manufacturers. There is a large design space for oxygen conservation devices, including electronic vs. pneumatic devices, and variable pulse length (with a fixed flow rate, so that pulse length is adjusted to change the equivalent continuous flow rate) vs. variable flow rate (with a fixed pulse length, so that flow rate is changed relative to the patient's breathing pattern to change the equivalent continuous flow rate).[^bliss]<sup>,</sup>[^vip] We chose to develop an electronic device so that manufacturers can rely on mature, off-the-shelf components which are already certified for performance and reliability. We prioritized achieving a design which is safe, effective, easy to use, and easy to manufacture rapidly and at scale. These design values led to the following requirements:
+
+1. The device should at minimum be able to interface with an oxygen cylinder through the most common interfaces - standard oxygen regulators which (1) reduce the supply to 50 psi and (2) can be used to set continuous flow rate. The same principles might also be applicable to delivery of oxygen via manifolds.
+2. The overall system (the device + parts connected to the device) should ideally only have one adjustable control parameter for setting the flow profile, and the flow profile should be associated with an equivalent continuous flow rate that healthcare providers can easily read out. Since the device works with an already-existing oxygen delivery system (oxygen tank and nasal cannula) or manifold, other parameters should still be adjusted using already-existing control knobs to avoid the need to control two redundant interfaces.
+3. The device should provide continuous flow with flow rates that are not much higher than the set equivalent continuous flow rate when the device is disconnected from power or when the device fails for any other reason (fail-safe by fail-open approach).
+4. It should be simple to bypass the system or introduce it in a system on an on-demand basis when oxygen needs change dramatically.
+
+These requirements lead to the use of a variable flow rate approach and constrain the design to use  device with an on/off normally-open valve, where continuous flow rate is the flow rate set on the oxygen regulator. A schematic of a device meeting these requirements is shown in Figure 1. The device mainly consists of a flow-control valve and pressure sensor in line with the standard pressure/flow regulator on an oxygen cylinder. The device senses patient inhalation through the pressure port and pressure sensor as a pressure drop below a threshold, and triggers the valve to allow flow. This allows a pulse of oxygen to reach the patient at the start of inhalation. Similarly, when the patient finishes inhalation, the device detects this as the rise of pressure above a threshold and turns off the flow of oxygen to save oxygen during the expiratory phase.
 
 <figure>
 
@@ -18,12 +25,16 @@ Here we present a simple, rapidly manufacturable pulse-dose oxygen delivery syst
 </figure>
 
 
-Additionally, the system requires the following elements:
+Additionally, the system includes the following elements:
 
 - A microcontroller to process measurements from the pressure sensor and control the flow-control valve accordingly. Because of the simple design of the device, the only constraint on choice of microcontroller is that it needs to support the communication protocol (typically I<sup>2</sup>C or SPI) used by the pressure sensor. Once this specification is met, choice of microcontroller should be driven by safety considerations and supply chain availability.
 - An auditory alarm and visual indicator should be provided for patient conditions or technical faults which require attention.
-- A power source must be provided for the system. For portability, a rechargeable battery should be part of this power source.
+- A power source for the system. For portability, a rechargeable battery should be part of this power source.
 
 More specific aspects of the design are explored in our functional prototype, which we describe on the following page.
 
 [<Button>&laquo; Concept</Button>](concept) [<Button>Prototype &raquo;</Button>](prototype)
+
+[^bliss]: PL Bliss, RW McCoy, AB Adams. [A Bench Study Comparison of Demand Oxygen Delivery Systems and Continuous Flow Oxygen](https://www.oxypoint.eu/sites/default/files/content-files/TECH%201%20-%20Comparison%20of%20Demand%20Oxygen%20Delivery%20Systems%20and%20Continuous%20Flow%20Oxygen.pdf). _Respiratory Care_, 44(8) (1999): 925-931.
+
+[^vip]: Valley Inspired Products. [2007 Guide To Understanding Oxygen Conserving Devices](http://www.inspiredrc.com/images/documents/OCD2007.pdf). 2007.
