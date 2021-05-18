@@ -24,9 +24,10 @@ For this prototype, we chose to have a dedicated pressure port for use with the 
 
 In this prototype, the control module consists of (Fig. 2):
 
-* Tubing connectors for connections to the oxygen source and the nasal cannula.
-* A solenoid valve with a manifold for tubing connections to the oxygen source and the patient. This solenoid has a normally-open configuration, so that the device will allow full delivery of oxygen in the event of power loss.
-* A differential pressure sensor with a range of up to ±6 kPa.
+* Tubing connectors for connections to the oxygen source and the nasal cannula. In this prototype, 1/8" ID, 1/4" OD AdvantaPure APHP High Pressure Unreinforced Silicone Tubing is used to connect the device to the oxygen regulator on the oxygen cylinder.
+* A Clippard 15 mm solenoid valve with a manifold for tubing connections to the oxygen source and the patient. This solenoid has a normally-open configuration, so that the device will allow full delivery of oxygen in the event of power loss.
+* A PWM valve driver IC which implements "hit and hold" actuation of the solenoid valve for reduced power consumption and heat generation.
+* A temperature-compensated differential pressure sensor with a range of up to ±6 kPa and either an SPI or I2C interface.
 * A Raspberry Pi Pico micontroller, which was selected for reasons of cost and availability, and for compatibility with the Arduino project.
 * A medical buzzer and an LED to visually and auditorily indicate alarm conditions.
 * A button to temporarily silence alarms.
@@ -49,7 +50,7 @@ The device must be placed close to the oxygen cylinder, in order to avoid pneuma
 
 ## Mechanical Design
 
-The control and power modules are each enclosed in a waterproof (IP67) enclosure made from either plastic or aluminum in a standard form factor for manufacturability. The enclosures of the two modules can be attached to each other via mounting holes, to rigidly integrate the modules into a full device (Fig. 3).
+The control and power modules are each enclosed in a waterproof (IP67) enclosure made from either plastic or aluminum in a standard form factor for manufacturability. The enclosures of the two modules can be attached to each other via mounting holes, to rigidly integrate the modules into a full device (Fig. 3). In the first functional prototype for characterization, the enclosure was 3-D printed.
 
 <figure>
 
@@ -64,7 +65,7 @@ The control and power modules are each enclosed in a waterproof (IP67) enclosure
 
 ## Electronics Design
 
-The microcontroller, pressure sensor, and driver circuitry are integrated on a custom printed circuit board in the control module (Fig. 4).
+The microcontroller, pressure sensor, and driver circuitry are integrated on a custom printed circuit board in the control module (Fig. 4). This printed circuit board was designed in KiCad.
 
 <figure>
 
@@ -81,7 +82,7 @@ The electronics in the control module are powered through a USB Micro B port by 
 
 ## Firmware
 
-For simplicity, transparency, and ease of understandability, the firmware is written as a very short Arduino sketch.
+For simplicity, transparency, and ease of understandability, the firmware is written as a very short Arduino sketch. The firmware was written in the Arduino IDE.
 
 ## Assembly
 
