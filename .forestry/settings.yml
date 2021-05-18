@@ -11,11 +11,11 @@ sections:
   match: "**/*.mdx"
   new_doc_ext: mdx
 - type: document
-  path: src/sidebar.mdx
-  label: Sidebar
-- type: document
   path: src/header.mdx
   label: Header
+- type: document
+  path: src/sidebar.mdx
+  label: Sidebar
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
