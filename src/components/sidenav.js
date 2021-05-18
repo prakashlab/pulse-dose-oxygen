@@ -22,6 +22,12 @@ export default props => (
       pt: [5, 3],
       pb: 4,
       transition: 'none',
+      '.icon': {
+        height: '1em',
+        width: '1em',
+        margin: '0 0.05 em 0 0.1em',
+        verticalAlign: '0.1em',
+      },
     }}
   />
 )

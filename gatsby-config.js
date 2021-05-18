@@ -71,6 +71,14 @@ module.exports = {
           },
           'gatsby-remark-figure',
           'gatsby-remark-numbered-footnotes',
+          {
+            resolve: `gatsby-remark-twemoji-shortcut`,
+            options: {
+              style: {
+                display: 'inline',
+              },
+            },
+          },
         ],
         remarkPlugins: [
           require('remark-slug'),

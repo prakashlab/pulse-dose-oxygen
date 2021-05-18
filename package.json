@@ -39,6 +39,7 @@
     "gatsby-remark-numbered-footnotes": "^1.0.1",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-remark-responsive-iframe": "^2.11.0",
+    "gatsby-remark-twemoji-shortcut": "^0.10.1",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-sharp": "^2.12.1",
     "is-absolute-url": "^3.0.3",
