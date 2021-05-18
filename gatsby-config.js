@@ -2,9 +2,9 @@ module.exports = {
   siteMetadata: {
     title: 'AnmO2l',
     description: 'Documentation site for a pulse-dose oxygen conservation system',
-    siteUrl: 'https://prakashlab.github.io/anmo2l-docs/',
+    siteUrl: 'https://anmol2.org',
   },
-  pathPrefix: '/anmo2l-docs',
+  pathPrefix: '',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
