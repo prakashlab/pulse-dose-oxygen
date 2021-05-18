@@ -14,7 +14,7 @@ const styles = {
   alignItems: 'center',
   width: '100%',
   img: {
-    height: 48,
+    height: 64,
     objectFit: 'contain',
     imageRendering: '-webkit-optimize-contrast',
   },
