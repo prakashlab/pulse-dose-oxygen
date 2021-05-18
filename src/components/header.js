@@ -16,6 +16,7 @@ const styles = {
   img: {
     height: 48,
     objectFit: 'contain',
+    imageRendering: ['crisp-edges', '-webkit-optimize-contrast'],
   },
   h1: {
     m: 0
