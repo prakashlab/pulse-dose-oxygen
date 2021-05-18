@@ -8,7 +8,7 @@ const Doc = ({ data: { doc } }) => {
   const headingTitle = doc.headings[0] && doc.headings[0].value
 
   return (
-    <Layout>
+    <Layout isHome={doc.slug === '/'}>
       <SEO
         title={doc.title || headingTitle}
         description={doc.description || doc.excerpt}

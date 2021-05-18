@@ -13,6 +13,7 @@ export const pageQuery = graphql`
   query($id: String!) {
     doc: docs(id: { eq: $id }) {
       id
+      slug
       title
       description
       excerpt

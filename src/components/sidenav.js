@@ -15,7 +15,7 @@ export default props => (
     components={components}
     sx={{
       width: '75%',
-      maxWidth: '220px',
+      maxWidth: '240px',
       flex: 'none',
       pl: [20, 0],
       pr: 3,
