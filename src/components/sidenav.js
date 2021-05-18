@@ -25,7 +25,8 @@ export default props => (
       '.icon': {
         height: '1em',
         width: '1em',
-        margin: '0 0.05 em 0 0.1em',
+        margin: '0 0.5em 0 0em',
+        display: 'inline-block',
         verticalAlign: '0.1em',
       },
     }}
