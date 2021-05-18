@@ -13,6 +13,10 @@ const components = {
 const styles = {
   alignItems: 'center',
   width: '100%',
+  img: {
+    height: 48,
+    objectFit: 'contain',
+  },
   h1: {
     m: 0
   },
