@@ -10,12 +10,11 @@ sections:
   create: all
   match: "**/*.mdx"
   new_doc_ext: mdx
-- type: document
-  path: src/header.mdx
-  label: Header
-- type: document
-  path: src/sidebar.mdx
-  label: Sidebar
+- type: directory
+  path: src
+  label: Configuration
+  create: none
+  match: "**/*.mdx"
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
