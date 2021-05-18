@@ -1,3 +1,6 @@
+---
+
+---
 import Button from '../src/components/button'
 
 # Functional Prototype
@@ -17,15 +20,15 @@ Our first functional prototype consists of a control module, which controls the 
 
 The control module consists of (Fig. 2):
 
-- Tubing connectors for connections to the oxygen source and the nasal cannula.
-- A solenoid valve with a manifold for tubing connections to the oxygen source and the patient. This solenoid has a normally-open configuration, so that the device will allow full delivery of oxygen in the event of power loss.
-- A differential pressure sensor with a range of up to ±6 kPa.
-- A Raspberry Pi Pico micontroller, which was selected for reasons of cost and availability, and for compatibility with the Arduino project.
-- A medical buzzer and an LED to visually and auditorily indicate alarm conditions.
-- A button to temporarily silence alarms.
-- An on/off switch to turn the device on or off.
-- An enclosure with ventilation holes, to prevent build-up of oxygen in the event of a gas leak in the pneumatic circuit, and to allow sound from the medical buzzer to travel outside the enclosure.
-- A Type A USB port which receives power from an external source, such as the power module.
+* Tubing connectors for connections to the oxygen source and the nasal cannula.
+* A solenoid valve with a manifold for tubing connections to the oxygen source and the patient. This solenoid has a normally-open configuration, so that the device will allow full delivery of oxygen in the event of power loss.
+* A differential pressure sensor with a range of up to ±6 kPa.
+* A Raspberry Pi Pico micontroller, which was selected for reasons of cost and availability, and for compatibility with the Arduino project.
+* A medical buzzer and an LED to visually and auditorily indicate alarm conditions.
+* A button to temporarily silence alarms.
+* An on/off switch to turn the device on or off.
+* An enclosure with ventilation holes, to prevent build-up of oxygen in the event of a gas leak in the pneumatic circuit, and to allow sound from the medical buzzer to travel outside the enclosure.
+* A Type A USB port which receives power from an external source, such as the power module.
 
 <figure>
 
@@ -78,7 +81,7 @@ For simplicity, transparency, and ease of understandability, the firmware is wri
 
 ## Characterization
 
-A unit of the functional prototype was built using the custom printed circuit board and a 3-D printed enclosure for characterization (Fig. 5).
+A unit of the functional prototype was built using the custom printed circuit board and a 3-D printed enclosure for characterization under low-flow conditions (Fig. 5).
 
 <figure>
 
@@ -129,18 +132,33 @@ First we characterized inhalation triggering performance with different patient 
 </figcaption>
 </figure>
 
-Next, we characterized real-world issues (Fig. 7).
+### Nose vs. Mouth Breathing Test
+
+The proposed device should be sensitive enough to detect patient breath over a wide range of conditions including both nose breathers and mouth breathers. To test this sensitivity, the device was connected to a dual-lumen nasal cannula worn by a volunteer with no oxygen connected, and pressure waveforms were recorded with an on-board pressure sensor on the device. The volunteer was asked to breathe normally through the nose for a few breaths and then asked to breathe through the mouth. Consciously breathing through the mouth lowered the amplitude of the negative pressure peaks by around 3-4x, but still resulted in clearly resolved peaks (Fig. 7). These peaks were detected robustly by the device and triggered oxygen delivery. The triggering could only be confused by completely blocking the nose by pinching with fingers and isolating the nasal prongs from the mouth.
 
 <figure>
 
 ![Pressure waveform in the nose-vs-mouth breathing test.](/uploads/nose-mouth-waveform.png)
-![Pressure waveform in the patient cough test.](/uploads/cough-waveform.png)
 
 <figcaption>
 
-**Fig. 7**: Characterization of nose-vs-mouth breathing (above) and a patient cough test (below).
+**Fig. 7**: Characterization of nose-vs-mouth breathing.
 
 </figcaption>
 </figure>
 
-[<Button>&laquo; Design</Button>](design) [<Button>Contributing &raquo;</Button>](contributing)
+### Patient Cough Test
+
+We also tested how the device responded during patient coughs. The test setup was the same as in the nose vs. mouth breathing test described above. The volunteer was asked to simulate coughing, and pressure waveforms were recorded. The device was able to initiate a breath in the inspiratory periods which punctuated the coughs and thus performed as intended. These preliminary tests show that the device performs as intended, even with a single pressure value.
+
+<figure>
+
+![Pressure waveform in the patient cough test.](/uploads/cough-waveform.png)
+
+<figcaption>
+
+**Fig. 7**: Characterization of a patient cough test (below).
+
+</figcaption> </figure>
+
+[<Button>« Design</Button>](design) [<Button>Contributing »</Button>](contributing)
