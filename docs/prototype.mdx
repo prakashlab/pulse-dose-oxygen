@@ -1,0 +1,146 @@
+import Button from '../src/components/button'
+
+# Functional Prototype
+
+Our first functional prototype consists of a control module, which controls the flow of oxygen to the patient, and a power module, which provides power to the control module. Each module has its own enclosure for splash protection and other safety considerations, and the enclosures are mounted to each other in a vertically-stacked configuration (Fig. 1).
+
+<figure>
+
+![Schematic of the functional prototype.](/uploads/modularity-schematic.jpg)
+
+<figcaption>
+
+**Fig. 1**: Schematic of the functional device, showing the contents of the control module enclosure, which is stacked on top of the power module enclosure.
+
+</figcaption>
+</figure>
+
+The control module consists of (Fig. 2):
+
+- Tubing connectors for connections to the oxygen source and the nasal cannula.
+- A solenoid valve with a manifold for tubing connections to the oxygen source and the patient. This solenoid has a normally-open configuration, so that the device will allow full delivery of oxygen in the event of power loss.
+- A differential pressure sensor with a range of up to ±6 kPa.
+- A Raspberry Pi Pico micontroller, which was selected for reasons of cost and availability, and for compatibility with the Arduino project.
+- A medical buzzer and an LED to visually and auditorily indicate alarm conditions.
+- A button to temporarily silence alarms.
+- An on/off switch to turn the device on or off.
+- An enclosure with ventilation holes, to prevent build-up of oxygen in the event of a gas leak in the pneumatic circuit, and to allow sound from the medical buzzer to travel outside the enclosure.
+- A Type A USB port which receives power from an external source, such as the power module.
+
+<figure>
+
+![Schematic of the control module of the proposed device.](/uploads/detailed-schematic.jpg)
+
+<figcaption>
+
+**Fig. 2**: Mechanical layout of the control module.
+
+</figcaption>
+</figure>
+
+The device must be placed close to the oxygen cylinder, in order to avoid pneumatic issues which result from having long inlet tubing between the oxygen cylinder and the device.
+
+## Mechanical Design
+
+The control and power modules are each enclosed in a waterproof (IP67) enclosure made from either plastic or aluminum in a standard form factor for manufacturability. The enclosures of the two modules can be attached to each other via mounting holes, to rigidly integrate the modules into a full device (Fig. 3).
+
+<figure>
+
+![Mechanical rendering of the fully assembled device, with the control and power modules attached to each other, and all external interfaces shown.](/uploads/overall-render.jpg)
+
+<figcaption>
+
+**Fig. 3**: Mechanical rendering of the overall device.
+
+</figcaption>
+</figure>
+
+## Electronics Design
+
+The microcontroller, pressure sensor, and driver circuitry are integrated on a custom printed circuit board in the control module (Fig. 4).
+
+<figure>
+
+![Mechanical rendering of the custom printed circuit board.](/uploads/pcb-render.png)
+
+<figcaption>
+
+**Fig. 4**: Mechanical rendering of the custom printed circuit board for the control module.
+
+</figcaption>
+</figure>
+
+The electronics in the control module are powered through a USB Type A port by any USB power source such as the power module, which consists of a 5 V USB charging battery pack commonly used for charging cell phones. The two modules are connected by a USB Type to Type A cable. To protect against the risk of fire, a fuse for the power supply is included on the printed circuit board in the control module. The control module can be powered by any other standard 5 V USB charger instead of a power module, allowing alternative power sources to be used with our device. The control and power modules can be readily detached from each other to recharge the battery or power the control module from a USB power adapter on a wall outlet.
+
+## Firmware
+
+For simplicity, transparency, and ease of understandability, the firmware is written as a very short Arduino sketch.
+
+## Characterization
+
+A unit of the functional prototype was built using the custom printed circuit board and a 3-D printed enclosure for characterization (Fig. 5).
+
+<figure>
+
+![Photograph of the functional prototype.](/uploads/functional-prototype-photo.png)
+
+<figcaption>
+
+**Fig. 5**: Photograph of the functional prototype built for characterization.
+
+</figcaption>
+</figure>
+
+First we characterized inhalation triggering performance with different patient interfaces, namely a nasal cannula and a simple face mask (Fig. 6).
+
+<figure>
+
+<div class="table">
+<div class="row" style="display: flex">
+<div class="column" style="flex: 35%">
+
+![Photograph of the nasal cannula.](/uploads/nasal-cannula-photo.jpg)
+
+</div>
+<div class="column" style="flex: 65%">
+
+![Pressure waveform obtained with the nasal cannula.](/uploads/nasal-cannula-waveform.png)
+
+</div>
+</div>
+<div class="row" style="display: flex">
+<div class="column" style="flex: 35%">
+
+![Photograph of the face mask.](/uploads/face-mask-photo.jpg)
+
+</div>
+<div display="column" style="flex: 65%">
+
+![Pressure waveform obtained with the face mask.](/uploads/face-mask-waveform.png)
+
+</div>
+</div>
+</div>
+
+<figcaption>
+
+**Fig. 6**: Characterization of inhalation triggering performance with a nasal cannula (above) and a simple face mask (below).
+
+</figcaption>
+</figure>
+
+Next, we characterized real-world issues (Fig. 7).
+
+<figure>
+
+![Pressure waveform in the nose-vs-mouth breathing test.](/uploads/nose-mouth-waveform.png)
+![Pressure waveform in the patient cough test.](/uploads/cough-waveform.png)
+
+<figcaption>
+
+**Fig. 7**: Characterization of nose-vs-mouth breathing (above) and a patient cough test (below).
+
+</figcaption>
+</figure>
+
+[<Button>&laquo; Design</Button>](design) [<Button>Contributing &raquo;</Button>](contributing)

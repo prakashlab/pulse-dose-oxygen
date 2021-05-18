@@ -2,46 +2,28 @@ import Button from '../src/components/button'
 
 # Design
 
-## Overall Design
-
 **Disclaimer**: This is an open-source design we are sharing in the context of the pandemic. This is not an approved medical device and we do not advise any individual implementation. We are working with industrial partners to scale up this implementation - but sharing in open domain for other industry partners to engage as well. Please reach out to us and join the effort if you are interested in developing and validating the system for clinical evaluation.
 
-Here we present a simple, rapidly manufacturable pulse-dose oxygen delivery system which conserves oxygen by delivering it on patient demand. A schematic of the device is shown in Figure 1. The device mainly consists of a flow-control valve and pressure sensor in line with the standard pressure/flow regulator on an oxygen cylinder. The pressure sensor detects the start of  patient inhalation and opens the valve to allow oxygen flow to the patient. Similarly the end of the inhalation cycle is detected and the flow of oxygen reduced or stopped. An alarm must be installed to indicate a missed signal, either due to device malfunction or improper cannula connection.
+Here we present a simple, rapidly manufacturable pulse-dose oxygen delivery system which conserves oxygen by delivering it on patient demand. A schematic of the device is shown in Figure 1. The device mainly consists of a flow-control valve and pressure sensor in line with the standard pressure/flow regulator on an oxygen cylinder.  The device senses patient inhalation through the pressure port and pressure sensor as a pressure drop below a threshold, and triggers the valve to allow flow. This allows a pulse of oxygen to reach the patient at the start of inhalation. Similarly, when the patient finishes inhalation, the device detects this as the rise of pressure above a threshold and turns off the flow of oxygen to save oxygen during the expiratory phase.
 
 <figure>
 
-![Schematic of proposed device.](/uploads/design-schematic.png)
+![Schematic of the proposed device.](/uploads/overall-schematic.jpg)
 
 <figcaption>
 
-**Fig. 1**: Schematic of proposed device.
+**Fig. 1**: Schematic of the pneumatic design of the proposed device.
 
 </figcaption>
 </figure>
 
-<figure>
 
-![Design of proposed pinch shoe valve.](/uploads/pinch-shoe-valve-design.png)
-![Left, plot of flow rate and upstream pressure over time as valve is cycled. Right, plot of flow and upstream pressure versus linear actuator position, aggregated over many cycles.](/uploads/pinch-shoe-valve-characterization.png)
+Additionally, the system requires the following elements:
 
-<figcaption>
+- A microcontroller to process measurements from the pressure sensor and control the flow-control valve accordingly. Because of the simple design of the device, the only constraint on choice of microcontroller is that it needs to support the communication protocol (typically I<sup>2</sup>C or SPI) used by the pressure sensor. Once this specification is met, choice of microcontroller should be driven by safety considerations and supply chain availability.
+- An auditory alarm and visual indicator should be provided for patient conditions or technical faults which require attention.
+- A power source must be provided for the system. For portability, a rechargeable battery should be part of this power source.
 
-**Fig. 2**: Pinch shoe valve design and testing - in collaboration with Bharat Forge who will be the large scale manufacturer for this design.
+More specific aspects of the design are explored in our functional prototype, which we describe on the following page.
 
-</figcaption>
-</figure>
-
-A key aspect of our work last year was local development and manufacturing of valves for this purpose. With a shortage of supply chains - we built a new valve design in collaboration with Dan Harris lab (Brown) and Kai Kuck (U. Utah). We are now scaling production of these indiginous pinch-shoe valves since they alleviate many issues with lack of medical grade valve availability or use of grease and other volatiles used in traditional valves. Most importantly, we tested these valves for millions of cycles to characterize wear and tear.
-
-<figure>
-
-`youtube: https://www.youtube.com/embed/Te2L3a4rRs8`
-
-<figcaption>
-
-**Fig. 3**: Implementation of first prototype.
-
-</figcaption>
-</figure>
-
-[<Button>&laquo; Concept</Button>](concept) [<Button>Contributing &raquo;</Button>](contributing)
+[<Button>&laquo; Concept</Button>](concept) [<Button>Prototype &raquo;</Button>](prototype)
