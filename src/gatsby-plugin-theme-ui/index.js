@@ -37,7 +37,7 @@ export default {
     },
   },
   layout: {
-    maxWidth: '940px',
+    maxWidth: '950px',
     marginLeft: 'auto',
     marginRight: 'auto',
     py: 32,

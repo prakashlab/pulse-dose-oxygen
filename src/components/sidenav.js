@@ -15,7 +15,7 @@ export default props => (
     components={components}
     sx={{
       width: '75%',
-      maxWidth: '240px',
+      maxWidth: '250px',
       flex: 'none',
       pl: [20, 0],
       pr: 3,
@@ -23,11 +23,13 @@ export default props => (
       pb: 4,
       transition: 'none',
       '.icon': {
-        height: '1em',
-        width: '1em',
-        margin: '0 0.5em 0 0em',
+        height: '2em',
+        width: '2em',
+        marginRight: '0.25em',
+        marginTop: '0.5em',
         display: 'inline-block',
-        verticalAlign: '0.1em',
+        verticalAlign: '-0.5em',
+        imageRendering: '-webkit-optimize-contrast',
       },
     }}
   />
