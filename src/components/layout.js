@@ -31,13 +31,15 @@ export default ({ isHome, children }) => {
         <Global styles={bodyStyles} />
         <Box variant="layout">
           <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-          <div sx={{
-            display: ['block', 'flex'],
-            marginBottom: [0, '-8rem'],
-            maxHeight: '32rem',
-          }}>
-            <img alt="Oxygen cylinders" src={headerImage} width="100%" sx={{ objectFit: 'cover' }} />
-          </div>
+        </Box>
+        <div sx={{
+          display: ['block', 'flex'],
+          marginBottom: [0, '-8rem'],
+          maxHeight: '32rem',
+        }}>
+          <img alt="Oxygen cylinders" src={headerImage} width="100%" sx={{ objectFit: 'cover' }} />
+        </div>
+        <Box variant="layout">
           <Container>
             <div ref={nav} sx={{ display: ['block', 'flex'] }}>
               <Sidenav
@@ -45,7 +47,7 @@ export default ({ isHome, children }) => {
                 open={menuOpen}
                 sx={{
                   display: [null, 'block'],
-                  marginTop: '8rem',
+                  marginTop: [0, '8rem'],
                 }}
                 onFocus={() => setMenuOpen(true)}
                 onBlur={() => setMenuOpen(false)}
@@ -55,8 +57,9 @@ export default ({ isHome, children }) => {
               <div
                 sx={{
                   overflow: 'hidden',
-                  px: 3,
-                  pb: 16,
+                  px: [3, 32],
+                  pt: [0, 3],
+                  pb: 3,
                   backgroundColor: 'background',
                 }}
               >
@@ -93,8 +96,9 @@ export default ({ isHome, children }) => {
             <div
               sx={{
                 overflow: 'hidden',
-                px: 3,
-                pb: 16,
+                px: [3, 32],
+                pt: 3,
+                pb: 3,
               }}
             >
               {children}

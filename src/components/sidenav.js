@@ -15,11 +15,11 @@ export default props => (
     components={components}
     sx={{
       width: '75%',
-      maxWidth: '250px',
+      maxWidth: ['300px', '220px'],
       flex: 'none',
-      pl: [20, 0],
-      pr: 3,
-      pt: [5, 3],
+      pl: [32, 0],
+      pr: [3, 0],
+      pt: [5, 4],
       pb: 4,
       transition: 'none',
       '.icon': {
