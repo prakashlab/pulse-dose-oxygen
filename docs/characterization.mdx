@@ -1,0 +1,97 @@
+---
+
+---
+import Button from '../src/components/button'
+
+# Prototype Characterization
+
+As an initial test, a volunteer trialed our functional prototype while wearing a Teleflex 2845 nasal cannula (with the O2 limb cut, as we're still waiting for IRB approval). We recorded pressure and flow waveforms during normal breathing (Fig. 1), with waveforms measured from a Sensirion SFM3019 flow sensor directly connected to the microcontroller, and pressure and flow measurements recorded every 5 ms and transmitted over a USB connection to a computer for recording.
+
+<figure>
+
+![Integration of prototype device with a flow sensor on the output port](/uploads/characterization-photo.png)
+![Sample flow rate and pressure waveforms from the prototype device at different flow rates.](/uploads/waveforms.png)
+
+<figcaption>
+
+**Fig. 1**: Integration of prototype device with a flow sensor on the output port (above), and sample flow rate and pressure waveforms from the prototype device at different flow rates (below). Flow rates are set by the flow regulator attached to the oxygen cylinder and are not controlled by the device.
+
+</figcaption>
+</figure>
+
+We observed that the spike at the beginning of flow delivery is reduced when an intact nasal cannula is connected to the device, and we also confirmed that the initial peak is due to the 50 psi reservoir largely formed by the tubing connecting the oxygen regulator and the device (Fig. 2). Such peaks, with limited magnitude (< 10 L/min in all cases) should not result in user discomfort and will increase oxygen delivery efficiency, according to prior studies.[^bliss]<sup>,</sup>[^vip] Comparison of these waveforms with validated devices[^bliss]<sup>,</sup>[^vip] suggests that satisfactory performance may be expected, which should be confirmed by further testing and clinical evaluation.
+
+## Patient Interfaces
+
+Next, we characterized inhalation triggering performance with different patient interfaces, namely a nasal cannula and a simple face mask (Fig. 3). Right now the device is only designed for use with nasal cannulas. While this data confirms that the trigger also works with simple face masks which traditionally require 5 - 10 L/min of flow for oxygen enrichment and CO<sub>2</sub> washout, further study is needed on whether trigger timing schemes allow use of the device with simple face masks.
+
+<figure>
+
+<div class="table">
+<div class="row" style="display: flex">
+<div class="column" style="flex: 35%">
+
+![Photograph of the nasal cannula.](/uploads/nasal-cannula-photo.jpg)
+
+</div>
+<div class="column" style="flex: 65%">
+
+![Pressure waveform obtained with the nasal cannula.](/uploads/nasal-cannula-waveform.png)
+
+</div>
+</div>
+<div class="row" style="display: flex">
+<div class="column" style="flex: 35%">
+
+![Photograph of the face mask.](/uploads/face-mask-photo.jpg)
+
+</div>
+<div display="column" style="flex: 65%">
+
+![Pressure waveform obtained with the face mask.](/uploads/face-mask-waveform.png)
+
+</div>
+</div>
+</div>
+
+<figcaption>
+
+**Fig. 3**: Characterization of inhalation triggering performance with a nasal cannula (above) and a simple face mask (below).
+
+</figcaption>
+</figure>
+
+## Nose vs. Mouth Breathing Test
+
+The proposed device should be sensitive enough to detect patient breath over a wide range of conditions including both nose breathers and mouth breathers. To test this sensitivity, the device was connected to a dual-lumen nasal cannula worn by a volunteer with no oxygen cylinder connected, and pressure waveforms were recorded with an on-board pressure sensor on the device. The volunteer was asked to breathe normally through the nose for a few breaths and then asked to breathe through the mouth. Consciously breathing through the mouth lowered the amplitude of the negative pressure peaks by around 3-4x but still resulted in clearly resolved peaks (Fig. 8). These peaks were detected robustly by the device and triggered initiation of breaths. The triggering could only be confused by completely blocking the nose by pinching with fingers and isolating the nasal prongs from the mouth.
+
+<figure>
+
+![Pressure waveform in the nose-vs-mouth breathing test.](/uploads/nose-mouth-waveform.png)
+
+<figcaption>
+
+**Fig. 4**: Characterization of nose-vs-mouth breathing.
+
+</figcaption>
+</figure>
+
+## Patient Cough Test
+
+We also tested how the device responded during patient coughs. The test setup was the same as in the nose vs. mouth breathing test described above. The volunteer was asked to simulate coughing, and pressure waveforms were recorded. The device was able to initiate breaths in the inspiratory periods which punctuated the coughs and thus performed as intended. These preliminary tests show that the device performs as intended, even with a single pressure threshold value.
+
+<figure>
+
+![Pressure waveform in the patient cough test.](/uploads/cough-waveform.png)
+
+<figcaption>
+
+**Fig. 5**: Characterization of a patient cough test.
+
+</figcaption> </figure>
+
+[<Button>« Prototype</Button>](prototype) [<Button>Contributing »</Button>](contributing)
+
+[^bliss]: PL Bliss, RW McCoy, AB Adams. [A Bench Study Comparison of Demand Oxygen Delivery Systems and Continuous Flow Oxygen](https://www.oxypoint.eu/sites/default/files/content-files/TECH%201%20-%20Comparison%20of%20Demand%20Oxygen%20Delivery%20Systems%20and%20Continuous%20Flow%20Oxygen.pdf). _Respiratory Care_, 44(8) (1999): 925-931.
+
+[^vip]: Valley Inspired Products. [2007 Guide To Understanding Oxygen Conserving Devices](http://www.inspiredrc.com/images/documents/OCD2007.pdf). 2007.

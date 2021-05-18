@@ -31,7 +31,7 @@ export default ({ href, children, ...props }) => {
   return (
     <Link
       {...props}
-      to={to.replace('/pulse-dose-oxygen', '')}
+      to={to.replace('/anmo2l-docs', '')}
       sx={styles}
       activeClassName="active"
     >

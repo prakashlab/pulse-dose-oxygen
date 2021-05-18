@@ -5,7 +5,9 @@ import Button from '../src/components/button'
 
 # Functional Prototype
 
-Our first functional prototype consists of a control module, which controls the flow of oxygen to the patient, and a power module, which provides power to the control module. Each module has its own enclosure for splash protection and other safety considerations, and the enclosures are mounted to each other in a vertically-stacked configuration (Fig. 1).
+Our first functional prototype consists of a control module, which controls the flow of oxygen to the patient, and a power module, which provides power to the control module. Each module has its own enclosure for splash protection and other safety considerations, and the enclosures are mounted to each other in a vertically-stacked configuration (Fig. 1). This modular design allows our prootype to be simple and modular.
+
+The simplest possible control module would have the exposed power port as the only human-machine interface: the user would plug in power to turn on the device and enable oxygen conservation, or disconnect power to turn off the device and enable continuous flow. For improved usability, we have included an on/off switch and an LED indicator to indicate the power and operation state of the device, as well as an alarm silencing button.
 
 <figure>
 
@@ -18,7 +20,9 @@ Our first functional prototype consists of a control module, which controls the 
 </figcaption>
 </figure>
 
-The control module consists of (Fig. 2):
+For this prototype, we chose to have a dedicated pressure port for use with the dual-limb nasal cannula, so that pressure  measurement is not affected by variable flow rate, making the software implementation of precise valve on/off timing straightforward and flexible. For example, threshold values can be set so that flow delivery starts near the end of exhalation (before inhalation starts) and stops before the end of inhalation for higher oxygen delivery and conservation efficiency.
+
+In this prototype, the control module consists of (Fig. 2):
 
 * Tubing connectors for connections to the oxygen source and the nasal cannula.
 * A solenoid valve with a manifold for tubing connections to the oxygen source and the patient. This solenoid has a normally-open configuration, so that the device will allow full delivery of oxygen in the event of power loss.
@@ -28,7 +32,7 @@ The control module consists of (Fig. 2):
 * A button to temporarily silence alarms.
 * An on/off switch to turn the device on or off.
 * An enclosure with ventilation holes, to prevent build-up of oxygen in the event of a gas leak in the pneumatic circuit, and to allow sound from the medical buzzer to travel outside the enclosure.
-* A Type A USB port which receives power from an external source, such as the power module.
+* A USB port which receives power from an external source, such as the power module.
 
 <figure>
 
@@ -73,92 +77,25 @@ The microcontroller, pressure sensor, and driver circuitry are integrated on a c
 </figcaption>
 </figure>
 
-The electronics in the control module are powered through a USB Type A port by any USB power source such as the power module, which consists of a 5 V USB charging battery pack commonly used for charging cell phones. The two modules are connected by a USB Type to Type A cable. To protect against the risk of fire, a fuse for the power supply is included on the printed circuit board in the control module. The control module can be powered by any other standard 5 V USB charger instead of a power module, allowing alternative power sources to be used with our device. The control and power modules can be readily detached from each other to recharge the battery or power the control module from a USB power adapter on a wall outlet.
+The electronics in the control module are powered through a USB Micro B port by any USB power source such as the power module, which consists of a 5 V USB charging battery pack commonly used for charging cell phones. The two modules are connected by a USB Type A to Micro B cable. To protect against the risk of fire, a fuse for the power supply is included on the printed circuit board in the control module. The control module can be powered by any other standard 5 V USB charger instead of a power module, allowing alternative power sources to be used with our device. The control and power modules can be readily detached from each other to recharge the battery or power the control module from a USB power adapter on a wall outlet.
 
 ## Firmware
 
 For simplicity, transparency, and ease of understandability, the firmware is written as a very short Arduino sketch.
 
-## Characterization
+## Assembly
 
-A unit of the functional prototype was built using the custom printed circuit board and a 3-D printed enclosure for characterization under low-flow conditions (Fig. 5).
+A unit of the functional prototype was assembled using the custom printed circuit board and a 3-D printed enclosure for characterization under low-flow conditions (Fig. 5). Characterization results are presented on the next page.
 
 <figure>
 
-![Photograph of the functional prototype.](/uploads/functional-prototype-photo.png)
+![Photograph of the functional prototype.](/uploads/assembled-photo.jpg)
 
 <figcaption>
 
-**Fig. 5**: Photograph of the functional prototype built for characterization.
+**Fig. 5**: Photograph of the functional prototype built for characterization. This photograph shows the device with the enclosure cover removed, and without the power module; during normal opration the cover will be closed.
 
 </figcaption>
 </figure>
 
-First we characterized inhalation triggering performance with different patient interfaces, namely a nasal cannula and a simple face mask (Fig. 6).
-
-<figure>
-
-<div class="table">
-<div class="row" style="display: flex">
-<div class="column" style="flex: 35%">
-
-![Photograph of the nasal cannula.](/uploads/nasal-cannula-photo.jpg)
-
-</div>
-<div class="column" style="flex: 65%">
-
-![Pressure waveform obtained with the nasal cannula.](/uploads/nasal-cannula-waveform.png)
-
-</div>
-</div>
-<div class="row" style="display: flex">
-<div class="column" style="flex: 35%">
-
-![Photograph of the face mask.](/uploads/face-mask-photo.jpg)
-
-</div>
-<div display="column" style="flex: 65%">
-
-![Pressure waveform obtained with the face mask.](/uploads/face-mask-waveform.png)
-
-</div>
-</div>
-</div>
-
-<figcaption>
-
-**Fig. 6**: Characterization of inhalation triggering performance with a nasal cannula (above) and a simple face mask (below).
-
-</figcaption>
-</figure>
-
-### Nose vs. Mouth Breathing Test
-
-The proposed device should be sensitive enough to detect patient breath over a wide range of conditions including both nose breathers and mouth breathers. To test this sensitivity, the device was connected to a dual-lumen nasal cannula worn by a volunteer with no oxygen connected, and pressure waveforms were recorded with an on-board pressure sensor on the device. The volunteer was asked to breathe normally through the nose for a few breaths and then asked to breathe through the mouth. Consciously breathing through the mouth lowered the amplitude of the negative pressure peaks by around 3-4x, but still resulted in clearly resolved peaks (Fig. 7). These peaks were detected robustly by the device and triggered oxygen delivery. The triggering could only be confused by completely blocking the nose by pinching with fingers and isolating the nasal prongs from the mouth.
-
-<figure>
-
-![Pressure waveform in the nose-vs-mouth breathing test.](/uploads/nose-mouth-waveform.png)
-
-<figcaption>
-
-**Fig. 7**: Characterization of nose-vs-mouth breathing.
-
-</figcaption>
-</figure>
-
-### Patient Cough Test
-
-We also tested how the device responded during patient coughs. The test setup was the same as in the nose vs. mouth breathing test described above. The volunteer was asked to simulate coughing, and pressure waveforms were recorded. The device was able to initiate a breath in the inspiratory periods which punctuated the coughs and thus performed as intended. These preliminary tests show that the device performs as intended, even with a single pressure value.
-
-<figure>
-
-![Pressure waveform in the patient cough test.](/uploads/cough-waveform.png)
-
-<figcaption>
-
-**Fig. 7**: Characterization of a patient cough test (below).
-
-</figcaption> </figure>
-
-[<Button>« Design</Button>](design) [<Button>Contributing »</Button>](contributing)
+[<Button>« Design</Button>](design) [<Button>Characterization »</Button>](Characterization)
