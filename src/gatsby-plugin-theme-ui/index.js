@@ -18,8 +18,8 @@ const heading = {
 export default {
   ...bootstrap,
   colors: {
+    ...bootstrap.colors,
     text: '#222',
-    background: '#fff',
     primary: '#eb7d23',
     highlight: '#fff200',
   },

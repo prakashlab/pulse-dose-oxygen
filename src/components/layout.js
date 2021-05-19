@@ -6,6 +6,7 @@ import { useLocation } from '@reach/router'
 import Img from 'gatsby-image'
 
 import Header from './header'
+import Footer from './footer'
 import Sidenav from './sidenav'
 
 export default ({ coverImage, children, slug }) => {
@@ -82,6 +83,17 @@ export default ({ coverImage, children, slug }) => {
           </div>
         </Container>
       </Box>
+      <div sx={{
+        mt: 64,
+        pt: 32,
+        pb: 64,
+        width: '100%',
+        backgroundColor: 'muted',
+      }}>
+        <Box variant="layout">
+          <Footer />
+        </Box>
+      </div>
     </ThemedRoot>
   )
 }
