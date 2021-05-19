@@ -8,7 +8,7 @@ import Img from 'gatsby-image'
 import Header from './header'
 import Sidenav from './sidenav'
 
-export default ({ coverImage, children }) => {
+export default ({ coverImage, children, slug }) => {
   const { theme: { colors = {} } } = useThemeUI()
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = useRef(null)
@@ -23,19 +23,22 @@ export default ({ coverImage, children }) => {
 
   const location = useLocation()
 
-  const ThemedRoot = Themed.root
+  const sidenavMarginTop = coverImage ? '8rem' : 0;
+  const contentPaddingTopMobile = coverImage ? 0 : 3;
+  const coverMaxHeight = slug === '/' ? '60rem' : '30rem';
 
-  if (coverImage) {
-    return (
-      <ThemedRoot>
-        <Global styles={bodyStyles} />
-        <Box variant="layout">
-          <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        </Box>
+  const ThemedRoot = Themed.root
+  return (
+    <ThemedRoot>
+      <Global styles={bodyStyles} />
+      <Box variant="layout">
+        <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      </Box>
+      {coverImage &&
         <div sx={{
           display: ['block', 'flex'],
           marginBottom: [0, '-8rem'],
-          maxHeight: '32rem',
+          maxHeight: coverMaxHeight,
         }}>
           <Img fluid={coverImage.childImageSharp.fluid} sx={{
             width: '100%',
@@ -43,44 +46,8 @@ export default ({ coverImage, children }) => {
             zIndex: -1,
           }}/>
         </div>
-        <Box variant="layout">
-          <Container>
-            <div ref={nav} sx={{ display: ['block', 'flex'] }}>
-              <Sidenav
-                role="navigation"
-                open={menuOpen}
-                sx={{
-                  display: [null, 'block'],
-                  marginTop: [0, '8rem'],
-                }}
-                onFocus={() => setMenuOpen(true)}
-                onBlur={() => setMenuOpen(false)}
-                onClick={() => setMenuOpen(false)}
-                pathname={location.pathname}
-              />
-              <div
-                sx={{
-                  overflow: 'hidden',
-                  px: [3, 32],
-                  pt: [0, 3],
-                  pb: 3,
-                  backgroundColor: 'background',
-                }}
-              >
-                {children}
-              </div>
-            </div>
-          </Container>
-        </Box>
-      </ThemedRoot>
-    )
-  }
-
-  return (
-    <ThemedRoot>
-      <Global styles={bodyStyles} />
+      }
       <Box variant="layout">
-        <Header nav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Container>
           <div
             ref={nav}
@@ -91,7 +58,10 @@ export default ({ coverImage, children }) => {
             <Sidenav
               role="navigation"
               open={menuOpen}
-              sx={{ display: [null, 'block'] }}
+              sx={{
+                display: [null, 'block'],
+                marginTop: [0, sidenavMarginTop],
+              }}
               onFocus={() => setMenuOpen(true)}
               onBlur={() => setMenuOpen(false)}
               onClick={() => setMenuOpen(false)}
@@ -101,8 +71,9 @@ export default ({ coverImage, children }) => {
               sx={{
                 overflow: 'hidden',
                 px: [3, 32],
-                pt: 3,
+                pt: [contentPaddingTopMobile, 3],
                 pb: 3,
+                backgroundColor: 'background',
               }}
             >
               {children}

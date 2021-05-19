@@ -10,7 +10,7 @@ const Doc = ({ data: { doc } }) => {
   const ThemedH1 = Themed.h1
 
   return (
-    <Layout coverImage={doc.frontmatter.coverImage}>
+    <Layout coverImage={doc.frontmatter.coverImage} slug={doc.slug}>
       <SEO
         title={doc.title || headingTitle}
         description={doc.description || doc.excerpt}

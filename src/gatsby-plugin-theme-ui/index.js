@@ -40,7 +40,7 @@ export default {
     maxWidth: '950px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    py: 32,
+    py: 0,
     px: [16, 32],
   },
   breakpoints: ['800px'],

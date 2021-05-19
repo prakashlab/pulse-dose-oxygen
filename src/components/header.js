@@ -13,18 +13,20 @@ const components = {
 const styles = {
   alignItems: 'center',
   width: '100%',
+  my: 8,
   img: {
-    height: 64,
+    height: 40,
     objectFit: 'contain',
     imageRendering: '-webkit-optimize-contrast',
   },
   h1: {
-    m: 0
+    m: 0,
   },
   ul: {
     ml: 'auto',
     display: 'flex',
     listStyleType: 'none',
+    my: 0,
   },
   li: {
     ml: 3
