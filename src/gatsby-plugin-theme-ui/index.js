@@ -170,6 +170,9 @@ export default {
       a: {
         textDecoration: 'none',
       }
+    },
+    mark: {
+      backgroundColor: 'highlight',
     }
   },
 }
