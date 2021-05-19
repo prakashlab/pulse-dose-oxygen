@@ -36,7 +36,7 @@ export default props => (
         outline: '2px solid',
       },
       ':hover': {
-        color: 'primary',
+        backgroundColor: 'highlight',
       },
       display: ['block', 'none'],
       cursor: 'pointer',

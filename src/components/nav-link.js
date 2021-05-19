@@ -5,17 +5,18 @@ import isAbsoluteURL from 'is-absolute-url'
 
 const styles = {
   display: 'block',
-  px: 2,
-  py: 2,
+  pl: 2,
+  pr: 4,
+  pb: 2,
   color: 'inherit',
   textDecoration: 'none',
   fontSize: 2,
   fontWeight: 'bold',
   '&.active': {
-    color: 'primary',
+    backgroundColor: 'highlight',
   },
   '&:hover': {
-    color: 'primary',
+    backgroundColor: 'highlight',
   },
 }
 

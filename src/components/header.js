@@ -3,24 +3,30 @@ import { jsx, Container, Flex } from 'theme-ui'
 import { MDXProvider } from '@mdx-js/react'
 
 import MenuButton from './menu-button'
-import NavLink from './nav-link'
 import Content from '../header.mdx'
-
-const components = {
-  a: NavLink
-}
 
 const styles = {
   alignItems: 'center',
   width: '100%',
-  my: 8,
+  height: 72,
+  a: {
+    '&:active': {
+      backgroundColor: 'background',
+    },
+  },
   img: {
-    height: 40,
+    height: 48,
     objectFit: 'contain',
     imageRendering: '-webkit-optimize-contrast',
   },
   h1: {
     m: 0,
+    a: {
+      m: 0,
+      pt: 3,
+      pb: 0,
+      display: 'inline-block',
+    }
   },
   ul: {
     ml: 'auto',
@@ -46,7 +52,7 @@ export default ({ menuOpen, setMenuOpen, nav }) => {
               if (navLink) navLink.focus()
             }}
           />
-          <MDXProvider components={components}>
+          <MDXProvider>
             <Content />
           </MDXProvider>
         </Flex>

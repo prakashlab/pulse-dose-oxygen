@@ -5,16 +5,24 @@ const heading = {
   fontWeight: 'heading',
   lineHeight: 'heading',
   a: {
-    color: 'inherit',
+    color: 'text',
     textDecoration: 'none',
     '&:hover': {
-      color: 'primary',
+      backgroundColor: 'highlight',
     },
+    m: -2,
+    p: 2,
   }
 }
 
 export default {
   ...bootstrap,
+  colors: {
+    text: '#222',
+    background: '#fff',
+    primary: '#eb7d23',
+    highlight: '#fff200',
+  },
   fonts: {
     body: 'Inter, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif',
     heading: 'Inter, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif',
@@ -84,7 +92,7 @@ export default {
     a: {
       color: 'primary',
       '&:hover': {
-        color: 'secondary',
+        backgroundColor: 'highlight',
       },
     },
     pre: {

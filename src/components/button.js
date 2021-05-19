@@ -17,12 +17,12 @@ export default props => (
       color: 'text',
       bg: 'muted',
       border: 0,
-      borderRadius: 2,
+      borderRadius: 0,
       ':focus': {
         outline: '2px solid',
       },
       ':hover': {
-        color: 'primary',
+        backgroundColor: 'highlight',
       },
       cursor: 'pointer',
     }}
