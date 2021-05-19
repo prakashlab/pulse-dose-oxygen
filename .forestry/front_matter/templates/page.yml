@@ -9,5 +9,12 @@ fields:
   label: Page Title
   description: This is the page title which is displayed in large text near the top
     of the webpage.
+- name: coverImage
+  type: file
+  config:
+    maxSize: 64
+  label: Cover Image
+  description: A full-width image to be displayed above the title and sidebar, and
+    under the header.
 pages:
 - docs/team.mdx
