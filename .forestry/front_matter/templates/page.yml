@@ -20,7 +20,6 @@ fields:
 pages:
 - docs/characterization.mdx
 - docs/concept.mdx
-- docs/contributing.mdx
 - docs/design.mdx
 - docs/prototype.mdx
 - docs/readme.mdx
