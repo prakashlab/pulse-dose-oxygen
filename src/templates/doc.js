@@ -16,6 +16,15 @@ export const pageQuery = graphql`
       slug
       title
       description
+      frontmatter {
+        coverImage {
+          childImageSharp {
+            fluid(maxWidth: 2000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
       excerpt
       body
       headings {

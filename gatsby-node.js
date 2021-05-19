@@ -1,6 +1,8 @@
 const crypto = require(`crypto`)
 const path = require(`path`)
 const { joinPath } = require(`gatsby-core-utils`)
+const traverse = require(`traverse`)
+const { find, isString } = require(`lodash`)
 
 let basePath
 let contentPath
@@ -26,6 +28,28 @@ const mdxResolverPassthrough = fieldName => async (
   return result
 }
 
+// Adapted from gatsby-remark-relative-images
+slash = (path) => {
+  const isExtendedLengthPath = /^\\\\\?\\/.test(path);
+
+  if (isExtendedLengthPath) {
+    return path;
+  }
+  return path.replace(/\\/g, `/`);
+}
+findMatchingFile = (src, files, options) => {
+  const result = find(files, (file) => {
+    const staticPath = slash(path.join(options.staticFolderName, src));
+    return slash(path.normalize(file.absolutePath)).endsWith(staticPath);
+  });
+  if (!result) {
+    throw new Error(
+      `No matching file found for src "${src}" in static folder "${options.staticFolderName}". Please check static folder name and that file exists at "${options.staticFolderName}${src}". This error will probably cause a "GraphQLDocumentError" later in build. All converted field paths MUST resolve to a matching file in the "static" folder.`
+    );
+  }
+  return result;
+}
+
 exports.onPreBootstrap = (_, themeOptions) => {
   basePath = themeOptions.basePath || `/`
   contentPath = themeOptions.contentPath || `docs`
@@ -34,13 +58,20 @@ exports.onPreBootstrap = (_, themeOptions) => {
 exports.sourceNodes = ({ actions, schema }) => {
   const { createTypes } = actions
 
-  createTypes(
+  createTypes([
+    `
+      type Frontmatter @infer {
+        title: String!
+        coverImage: File @fileByRelativePath
+      }
+    `,
     schema.buildObjectType({
       name: `Docs`,
       fields: {
         id: { type: `ID!` },
         title: { type: `String!`, },
         description: { type: `String`, },
+        frontmatter: `Frontmatter!`,
         slug: { type: `String!`, },
         headings: {
           type: `[MdxHeadingMdx!]`,
@@ -62,11 +93,14 @@ exports.sourceNodes = ({ actions, schema }) => {
         },
       },
       interfaces: [`Node`],
+      extensions: {
+        infer: true,
+      }
     })
-  )
+  ])
 }
 
-exports.onCreateNode = async ({ node, actions, getNode, createNodeId }) => {
+exports.onCreateNode = async ({ node, actions, getNode, getNodesByType, createNodeId }) => {
   const { createNode, createParentChildLink, createRedirect } = actions
 
   const isReadme = name => /readme/i.test(name)
@@ -114,10 +148,32 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId }) => {
       })
     }
 
-    const title = node.frontmatter.title
-    const description = node.frontmatter.description
+    const frontmatter = node.frontmatter
+    const title = frontmatter.title
+    const description = frontmatter.description
 
-    const fieldData = { title, description, slug }
+    // Convert relative image paths frontmatter
+    // Code adapted from gatsby-remark-relative-images, because it only works on
+    // Mdx type and not the custom Docs type
+    const files = getNodesByType(`File`);
+    const directory = path.dirname(node.fileAbsolutePath);
+    // Deeply iterate through frontmatter data for absolute paths
+    traverse(frontmatter).forEach(function (value) {
+      if (!isString(value)) return;
+
+      if (!path.isAbsolute(value) || !path.extname(value)) return;
+
+      const paths = this.path.reduce((acc, current) => {
+        acc.push(acc.length > 0 ? [acc, current].join('.') : current);
+        return acc;
+      }, []);
+
+      const file = findMatchingFile(value, files, {staticFolderName: ''});
+      const newValue = path.relative(directory, file.absolutePath);
+      this.update(newValue);
+    });
+
+    const fieldData = { title, description, slug, frontmatter }
     const mdxDocId = createNodeId(`${node.id} >>> Docs`)
 
     await createNode({

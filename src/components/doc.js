@@ -7,15 +7,15 @@ import SEO from './seo'
 
 const Doc = ({ data: { doc } }) => {
   const headingTitle = doc.headings[0] && doc.headings[0].value
-  const ThemedRoot = Themed.root
+  const ThemedH1 = Themed.h1
 
   return (
-    <Layout header={doc.slug === '/'}>
+    <Layout coverImage={doc.frontmatter.coverImage}>
       <SEO
         title={doc.title || headingTitle}
         description={doc.description || doc.excerpt}
       />
-      <Themed.h1>{doc.title}</Themed.h1>
+      <ThemedH1>{doc.title}</ThemedH1>
       <MDXRenderer>{doc.body}</MDXRenderer>
     </Layout>
   )

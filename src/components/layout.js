@@ -3,12 +3,12 @@ import { useState, useRef } from 'react'
 import { Global } from '@emotion/core'
 import { Themed, Box, Container, jsx, useThemeUI } from 'theme-ui'
 import { useLocation } from '@reach/router'
+import Img from 'gatsby-image'
 
 import Header from './header'
 import Sidenav from './sidenav'
-import headerImage from '../../uploads/headers/cylinders-1.jpg'
 
-export default ({ header, children }) => {
+export default ({ coverImage, children }) => {
   const { theme: { colors = {} } } = useThemeUI()
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = useRef(null)
@@ -25,7 +25,7 @@ export default ({ header, children }) => {
 
   const ThemedRoot = Themed.root
 
-  if (header) {
+  if (coverImage) {
     return (
       <ThemedRoot>
         <Global styles={bodyStyles} />
@@ -37,7 +37,11 @@ export default ({ header, children }) => {
           marginBottom: [0, '-8rem'],
           maxHeight: '32rem',
         }}>
-          <img alt="Oxygen cylinders" src={headerImage} width="100%" sx={{ objectFit: 'cover' }} />
+          <Img fluid={coverImage.childImageSharp.fluid} sx={{
+            width: '100%',
+            objectFit: 'cover',
+            zIndex: -1,
+          }}/>
         </div>
         <Box variant="layout">
           <Container>

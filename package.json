@@ -43,11 +43,13 @@
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-sharp": "^2.12.1",
     "is-absolute-url": "^3.0.3",
+    "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "remark-emoji": "^2.2.0",
     "remark-slug": "^6.0.0",
-    "theme-ui": "0.7.5"
+    "theme-ui": "0.7.5",
+    "traverse": "^0.6.6"
   }
 }
