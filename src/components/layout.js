@@ -6,9 +6,9 @@ import { useLocation } from '@reach/router'
 
 import Header from './header'
 import Sidenav from './sidenav'
-import headerImage from '../../uploads/header.jpg'
+import headerImage from '../../uploads/headers/cylinders-1.jpg'
 
-export default ({ isHome, children }) => {
+export default ({ header, children }) => {
   const { theme: { colors = {} } } = useThemeUI()
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = useRef(null)
@@ -25,7 +25,7 @@ export default ({ isHome, children }) => {
 
   const ThemedRoot = Themed.root
 
-  if (isHome) {
+  if (header) {
     return (
       <ThemedRoot>
         <Global styles={bodyStyles} />
