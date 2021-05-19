@@ -1,13 +1,13 @@
 /** @jsx jsx */
-import { jsx, Container, Flex } from 'theme-ui'
+import { jsx, Container, Box } from 'theme-ui'
 import { MDXProvider } from '@mdx-js/react'
 
 import Content from '../footer.mdx'
 
 const styles = {
   alignItems: 'center',
+  justifyContent: 'space-between',
   width: '100%',
-  height: 72,
   display: 'block',
   h1: {
     fontSize: 4,
@@ -23,7 +23,9 @@ const styles = {
     }
   },
   ul: {
-    display: ['block', 'flex'],
+    display: 'flex',
+    flex: 1,
+    flexDirection: ['column', 'row'],
     listStyleType: 'none',
     mt: 0,
     mb: [16, 0],
@@ -42,17 +44,10 @@ const styles = {
 
 export default () => {
   return (
-    <Container>
-      <Flex sx={{
-        justifyContent: 'space-between',
-        mb: [250, 120],
-      }}>
-        <Flex sx={styles}>
-          <MDXProvider>
-            <Content />
-          </MDXProvider>
-        </Flex>
-      </Flex>
-    </Container>
+    <Box sx={styles}>
+      <MDXProvider>
+        <Content />
+      </MDXProvider>
+    </Box>
   )
 }
