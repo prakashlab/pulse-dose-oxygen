@@ -16,5 +16,6 @@ fields:
   label: Cover Image
   description: A full-width image to be displayed above the title and sidebar, and
     under the header.
+  hidden: true
 pages:
 - docs/team.mdx
