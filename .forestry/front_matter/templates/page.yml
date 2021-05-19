@@ -18,4 +18,10 @@ fields:
     under the header.
   hidden: false
 pages:
+- docs/readme.mdx
+- docs/concept.mdx
+- docs/design.mdx
+- docs/prototype.mdx
+- docs/characterization.mdx
+- docs/contributing.mdx
 - docs/team.mdx
