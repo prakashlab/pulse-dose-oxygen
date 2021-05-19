@@ -1,3 +1,5 @@
+const isProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
   siteMetadata: {
     title: 'AnmO2l',
@@ -91,5 +93,13 @@ module.exports = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        code: isProduction ? 'anmo2l' : 'anmo2l-dev',
+        allowLocal: !isProduction,
+        referrer: true,
+      },
+    },
   ]
 }
