@@ -23,9 +23,9 @@ export default ({ coverImage, children, slug }) => {
 
   const location = useLocation()
 
-  const sidenavMarginTop = coverImage ? '8rem' : 0;
+  const sidenavMarginTop = coverImage ? '6em' : 0;
   const contentPaddingTopMobile = coverImage ? 0 : 3;
-  const coverMaxHeight = slug === '/' ? '60rem' : '30rem';
+  const coverMaxHeight = slug === '/' ? 800 : 480;
 
   const ThemedRoot = Themed.root
   return (
@@ -37,7 +37,8 @@ export default ({ coverImage, children, slug }) => {
       {coverImage &&
         <div sx={{
           display: ['block', 'flex'],
-          marginBottom: [0, '-8rem'],
+          marginBottom: [0, '-6em'],
+          height: '55vw',
           maxHeight: coverMaxHeight,
         }}>
           <Img fluid={coverImage.childImageSharp.fluid} sx={{
