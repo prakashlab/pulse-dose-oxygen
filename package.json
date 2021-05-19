@@ -36,6 +36,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-embed-video": "^3.1.1",
     "gatsby-remark-figure": "^1.0.0",
+    "gatsby-remark-gifs": "^1.0.0",
     "gatsby-remark-images": "^3.11.1",
     "gatsby-remark-numbered-footnotes": "^1.0.1",
     "gatsby-remark-relative-images": "^2.0.2",

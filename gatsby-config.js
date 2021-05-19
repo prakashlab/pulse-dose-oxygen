@@ -70,6 +70,7 @@ module.exports = {
               markdownCaptions: false,
             },
           },
+          'gatsby-remark-gifs',
           'gatsby-remark-figure',
           'gatsby-remark-numbered-footnotes',
           {
