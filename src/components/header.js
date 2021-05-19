@@ -8,7 +8,6 @@ import Content from '../header.mdx'
 const styles = {
   alignItems: 'center',
   width: '100%',
-  height: 72,
   a: {
     '&:active': {
       backgroundColor: 'background',
