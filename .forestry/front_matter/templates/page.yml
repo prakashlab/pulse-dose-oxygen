@@ -1,6 +1,13 @@
 ---
 label: Page
 hide_body: false
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Page Title
+  description: This is the page title which is displayed in large text near the top
+    of the webpage.
 pages:
 - docs/team.mdx
